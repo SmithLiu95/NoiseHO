@@ -213,20 +213,15 @@ if __name__ == '__main__':
     parser.add_argument('--exp_id', type=int, default=0)
     parser.add_argument('--max_grad_norm', type=float, default=50)
     parser.add_argument('--ho', action='store_true')
+    parser.add_argument('--valTrain', action='store_true')
     parser.add_argument('--weight_decay', type=float, default=0.0005)
     parser.add_argument('--warmup', type=int, default=10)
     parser.add_argument('--checkpoint', type = str, default='none')
     parser.add_argument('--hyper_scale', type=float, default=1000.0)
     parser.add_argument('--cosineLRdecay', action='store_true')
     args = parser.parse_args()
-    #v5 rewrite based on CYY lib
     assert (args.valTrain and args.ho)==False
-    #set exp name
 
-   
-    # exit()
-
-    # from preact_resnet import PreActResNet18
     num_classes=10
     from utils import model_test,get_lr,WeightedCE
     from torchvision.models.resnet import resnet18
